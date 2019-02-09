@@ -1,0 +1,35 @@
+<div class="contenedor">
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="valor1" type="number" placeholder="Ingrese primer valor">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="valor2" type="number" placeholder="Ingrese segundo valor">
+  </mat-form-field>
+
+  <mat-radio-group name="opciones" [(ngModel)]="operacionSeleccionada">
+    <mat-radio-button *ngFor="let op of tipoOperaciones" name="opciones" [value]="op"  style="margin: 10px">
+      {{op}}
+    </mat-radio-button>
+  </mat-radio-group>
+  <mat-checkbox [(ngModel)]="opcion1">Sumar</mat-checkbox>
+  <mat-checkbox [(ngModel)]="opcion2">Restar</mat-checkbox>
+  <mat-checkbox [(ngModel)]="opcion3">Multiplicar</mat-checkbox>
+  <mat-checkbox [(ngModel)]="opcion4">Dividir</mat-checkbox>
+
+  <button mat-raised-button color="primary" (click)="operar1()">Operar</button>
+  <button mat-raised-button color="primary" (click)="operar()">Operar</button>
+  <p>El resultado es:{{resultado}}</p>
+  <mat-form-field>
+    <mat-select placeholder="Operaciones" [(ngModel)]="seleccionada" name="operacion">
+      <mat-option *ngFor="let op of operaciones" [value]="op.valor">
+        {{op.muestraValor}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" (click)="operarselect()">Operar</button>
+
+</div>
+
